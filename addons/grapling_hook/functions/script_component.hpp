@@ -1,0 +1,1 @@
+#include "\z\ace\addons\grapling_hook\script_component.hpp"
