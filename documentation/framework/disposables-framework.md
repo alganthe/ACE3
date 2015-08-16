@@ -7,6 +7,11 @@ order: 5
 parent: wiki
 ---
 
+<div class="panel callout">
+    <h5>Note:</h5>
+    <p>This is just the necessary to make a launcher disposable, this is not a guide to make your own launcher.</p>
+</div>
+
 ## 1. Making a launcher disposable
 
 ### 1.1 CfgWeapons
@@ -31,7 +36,3 @@ class CfgWeapons {
     };
 };
 ```
-
-### 1.2 Notes
-
-- This is just the necessary to make a launcher disposable, this is not a guide to make your own launcher.

@@ -7,6 +7,11 @@ order: 5
 parent: wiki
 ---
 
+<div class="panel callout">
+    <h5>Note:</h5>
+    <p>This is just the necessary to make explosives using the framework, this is not a guide to make your own explosives.</p>
+</div>
+
 ## 1. Explosives
 
 ### 1.1 Setting the magazine
@@ -116,6 +121,3 @@ Name | Use
 `IRSensor` | Explode after movement is detected in front of the mine.
 `Timer` | Explode after timer drop to 0.
 `Tripwire` | Explode when something touch the tripwire.
-
-
-## 5. Events
