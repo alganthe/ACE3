@@ -59,11 +59,11 @@ switch (false) do {
 //Specific on-load stuff:
 private _listbox = _display displayCtrl 73062;
 {
-    _listbox lbSetData [_listbox lbAdd (_x select 0), _x select 1];
+    _listbox lbSetValue  [_listbox lbAdd (_x select 0), _x select 1];
 } forEach [
-    [localize LSTRING(ModuleGarrison_FillingModeEven), "0"],
-    [localize LSTRING(ModuleGarrison_FillingModeBuilding), "1"],
-    [localize LSTRING(ModuleGarrison_FillingModeRandom), "2"]
+    [localize LSTRING(ModuleGarrison_FillingModeEven), 0],
+    [localize LSTRING(ModuleGarrison_FillingModeBuilding), 1],
+    [localize LSTRING(ModuleGarrison_FillingModeRandom), 2]
 ];
 
 _listbox lbSetCurSel 0;
@@ -94,7 +94,7 @@ private _fnc_onConfirm = {
 
     private _radius = GETVAR(_display,GVAR(radius),50);
     private _position = GETVAR(_display,GVAR(position),getPos _logic);
-    private _mode = _lb lbData (lbCurSel _lb);
+    private _mode = _lb lbValue (lbCurSel _lb);
     private _TopDownFilling = cbChecked (_display displayCtrl 73061);
 
     [_logic, _position ,_radius, _mode, _TopDownFilling] call FUNC(moduleGarrison);

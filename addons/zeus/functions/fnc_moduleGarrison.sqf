@@ -20,6 +20,7 @@ params ["_logic", "_pos", "_radius" ,"_mode" , "_topDownMode"];
 private _unit = (attachedTo _logic);
 private _building = nearestBuilding (getPosASL _unit);
 
+// Handles errors
 scopeName "Main";
 private _fnc_errorAndClose = {
     params ["_msg"];
@@ -53,6 +54,6 @@ private _units = units _unit;
 
 [_pos, _units, _radius, _mode, _topDownMode] spawn {
     params ["_pos", "_units", "_radius", "_mode", "_topDownMode"];
-    [_pos, nil, _units, _radius, _mode, _topDownMode] call EFUNC(common,garrison)
+    [_pos, ["Building"], _units, _radius, _mode, _topDownMode] call EFUNC(common,garrison)
 };
 deleteVehicle _logic;

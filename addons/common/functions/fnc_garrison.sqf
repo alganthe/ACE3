@@ -21,6 +21,8 @@
 
 params ["_startingPos", ["_buildingTypes", ["Building"]], "_unitsArray", ["_fillingRadius", -1], ["_fillingType", 0], ["_topDownFilling", false]];
 
+_unitsArray = _unitsArray select {alive _x && {!isPlayer _x}};
+
 if (_startingPos isEqualTo [0,0,0]) exitWith {
     ["Invalid position given."] call EFUNC(common,displayTextStructured);
 };
@@ -75,13 +77,13 @@ private _cnt = 0;
 {_cnt = _cnt + count _x} foreach _buildingsIndexes;
 private _leftOverAICount = (count _unitsArray) - _cnt;
 if (_leftOverAICount > 0) then {
-    ["there weren't enough spots to place all units"] call EFUNC(common,displayTextStructured);
+    ["there isn't enough spots to place all units"] call EFUNC(common,displayTextStructured);
 };
 
 switch (_fillingType) do {
     case 0: {
+        scopeName "UnitScope";
         while {count _unitsArray > 0} do {
-            scopeName "UnitScope";
             if (count _buildingsIndexes == 0) exitWith {breakOut "UnitScope"};
 
             private _building = _buildingsIndexes select 0;
@@ -112,8 +114,8 @@ switch (_fillingType) do {
     };
 
     case 1: {
+        scopeName "UnitScope";
         while {count _unitsArray > 0} do {
-            scopeName "UnitScope";
             if (count _buildingsIndexes == 0) exitWith {breakOut "UnitScope"};
 
             private _building = _buildingsIndexes select 0;
@@ -127,7 +129,7 @@ switch (_fillingType) do {
             private _pos = _building select 0;
 
             // Remove building if all pos are used
-            if ( count (_pos nearEntities ["CAManBase", 1]) > 0) then {
+            if (count (_pos nearEntities ["CAManBase", 1]) > 0) then {
                 _buildingsIndexes set [0, _building - [_pos]];
                 breakTo "UnitScope";
 
@@ -143,8 +145,8 @@ switch (_fillingType) do {
     };
 
     case 2: {
+        scopeName "UnitScope";
         while {count _unitsArray > 0} do {
-            scopeName "UnitScope";
             if (count _buildingsIndexes == 0) exitWith {breakOut "UnitScope"};
 
             private _building = selectRandom _buildingsIndexes;
@@ -158,7 +160,7 @@ switch (_fillingType) do {
             private _pos = selectRandom _building;
 
             // Remove pos if unit nearby
-            if ( count (_pos nearEntities ["CAManBase", 1]) > 0) then {
+            if (count (_pos nearEntities ["CAManBase", 1]) > 0) then {
                 _buildingsIndexes set [(_buildingsIndexes find _building), _building - [_pos]];
                 breakTo "UnitScope";
 
