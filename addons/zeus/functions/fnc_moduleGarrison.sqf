@@ -52,8 +52,6 @@ private _units = units _unit;
     };
 } forEach _units;
 
-[_pos, _units, _radius, _mode, _topDownMode] spawn {
-    params ["_pos", "_units", "_radius", "_mode", "_topDownMode"];
-    [_pos, ["Building"], _units, _radius, _mode, _topDownMode] call EFUNC(common,garrison)
-};
+[_pos, ["Building"], _units, _radius, _mode, _topDownMode] call EFUNC(common,garrison);
+
 deleteVehicle _logic;
