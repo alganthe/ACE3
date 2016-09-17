@@ -174,4 +174,9 @@ class CfgVehicles {
         function = QFUNC(moduleUnconscious);
         icon = QPATHTOF(UI\Icon_Module_Zeus_Unconscious_ca.paa);
     };
+    class GVAR(moduleGarrison): GVAR(moduleBase) {
+        curatorCanAttach = 1;
+        displayName = CSTRING(ModuleGarrison_DisplayName);
+        curatorInfoType = QGVAR(RscGarrison);
+    };
 };

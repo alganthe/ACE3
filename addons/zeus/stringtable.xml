@@ -569,5 +569,29 @@
             <Russian>Введен неправильный радиус</Russian>
             <Czech>Vložen neplatný parametr</Czech>
         </Key>
+        <Key ID="STR_ACE_Zeus_ModuleGarrison_DisplayName">
+            <English>Garrison units</English>
+        </Key>
+        <Key ID="STR_ACE_Zeus_ModuleGarrison_TopDownFillingText">
+            <English>Fill from top to bottom</English>
+        </Key>
+        <Key ID="STR_ACE_Zeus_ModuleGarrison_TopDownFillingTooltip">
+            <English>Fill buildings from the highest position first</English>
+        </Key>
+        <Key ID="STR_ACE_Zeus_ModuleGarrison_FillingModeText">
+            <English>Building filling mode</English>
+        </Key>
+        <Key ID="STR_ACE_Zeus_ModuleGarrison_FillingModeEven">
+            <English>Even filling</English>
+        </Key>
+        <Key ID="STR_ACE_Zeus_ModuleGarrison_FillingModeBuilding">
+            <English>Building by building</English>
+        </Key>
+        <Key ID="STR_ACE_Zeus_ModuleGarrison_FillingModeRandom">
+            <English>Random filling</English>
+        </Key>
+        <Key ID="STR_ACE_Zeus_OnlyNonPlayer">
+            <English>Unit must not be a player</English>
+        </Key>
     </Package>
 </Project>

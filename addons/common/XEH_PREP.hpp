@@ -45,6 +45,7 @@ PREP(fixCollision);
 PREP(fixFloating);
 PREP(fixLoweredRifleAnimation);
 PREP(fixPosition);
+PREP(garrison);
 PREP(getAllDefinedSetVariables);
 PREP(getDeathAnim);
 PREP(getDefaultAnim);
