@@ -25,11 +25,11 @@ params [["_startingPos",[0,0,0], [[]], 3], ["_buildingTypes", ["Building"], [[]]
 _unitsArray = _unitsArray select {alive _x && {!isPlayer _x}};
 
 if (_startingPos isEqualTo [0,0,0]) exitWith {
-    [CSTRING(GarrisonInvalidPosition)] call EFUNC(common,displayTextStructured);
+    [LSTRING(GarrisonInvalidPosition)] call EFUNC(common,displayTextStructured);
 };
 
 if (count _unitsArray == 0 || {isNull (_unitsArray select 0)}) exitWith {
-    [CSTRING(GarrisonNoUnits)] call EFUNC(common,displayTextStructured);
+    [LSTRING(GarrisonNoUnits)] call EFUNC(common,displayTextStructured);
 };
 
 private _buildings = [];
@@ -42,7 +42,7 @@ if (_fillingRadius < 50) then {
 };
 
 if (count _buildings == 0) exitWith {
-    [CSTRING(GarrisonNoBuilding)] call EFUNC(common,displayTextStructured);
+    [LSTRING(GarrisonNoBuilding)] call EFUNC(common,displayTextStructured);
 };
 
 private _buildingsIndexes = [];
@@ -80,7 +80,7 @@ private _count = 0;
 {_count = _count + count _x} foreach _buildingsIndexes;
 private _leftOverAICount = (count _unitsArray) - _count;
 if (_leftOverAICount > 0) then {
-    [CSTRING(GarrisonNotEnoughPos)] call EFUNC(common,displayTextStructured);
+    [LSTRING(GarrisonNotEnoughPos)] call EFUNC(common,displayTextStructured);
 };
 
 // Do the placement
