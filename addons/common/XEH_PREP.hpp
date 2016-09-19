@@ -46,7 +46,6 @@ PREP(fixFloating);
 PREP(fixLoweredRifleAnimation);
 PREP(fixPosition);
 PREP(garrison);
-PREP(garrisonPlacement);
 PREP(getAllDefinedSetVariables);
 PREP(getDeathAnim);
 PREP(getDefaultAnim);

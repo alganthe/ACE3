@@ -83,4 +83,87 @@ if (_leftOverAICount > 0) then {
     [CSTRING(GarrisonNotEnoughPos)] call EFUNC(common,displayTextStructured);
 };
 
-[_fillingType, _unitsArray, _buildingsIndexes] call FUNC(garrisonPlacement)
+// Do the placement
+switch (_fillingType) do {
+    case 0: {
+        while {count _unitsArray > 0} do {
+            if (count _buildingsIndexes == 0) exitWith {};
+
+            private _building = _buildingsIndexes select 0;
+
+            if (_building isEqualTo []) then {
+                _buildingsIndexes deleteAt 0;
+            } else {
+                private _pos = _building select 0;
+
+                if ( count (_pos nearEntities ["CAManBase", 1]) > 0) then {
+                    _buildingsIndexes set [0,  _building - [_pos]];
+
+                } else {
+                    private _unit = _unitsArray select 0;
+                    [_unit, "AUTOCOMBAT"] remoteExec ["disableAI", _unit];
+                    [_unit,"PATH"] remoteExec ["disableAI", _unit];
+                    _unit setPos _pos;
+                    _unitsArray deleteAt (_unitsArray find _unit);
+                    _building deleteAt 0;
+                    _buildingsIndexes deleteAt 0;
+                    _buildingsIndexes pushbackUnique _building;
+                };
+            };
+        };
+    };
+
+    case 1: {
+        while {count _unitsArray > 0} do {
+            if (count _buildingsIndexes == 0) exitWith {};
+
+            private _building = _buildingsIndexes select 0;
+
+            if (_building isEqualTo []) then {
+                _buildingsIndexes deleteAt 0;
+            } else {
+                private _pos = _building select 0;
+
+                if (count (_pos nearEntities ["CAManBase", 1]) > 0) then {
+                    _buildingsIndexes set [0, _building - [_pos]];
+
+                } else {
+                    private _unit = _unitsArray select 0;
+                    [_unit, "AUTOCOMBAT"] remoteExec ["disableAI", _unit];
+                    [_unit,"PATH"] remoteExec ["disableAI", _unit];
+                    _unit setPos _pos;
+                    _unitsArray deleteAt (_unitsArray find _unit);
+                    _buildingsIndexes set [0, _building - [_pos]];
+                };
+            };
+        };
+    };
+
+    case 2: {
+        while {count _unitsArray > 0} do {
+            if (count _buildingsIndexes == 0) exitWith {};
+
+            private _building = selectRandom _buildingsIndexes;
+
+            if (_building isEqualTo []) then {
+                _buildingsIndexes deleteAt (_buildingsIndexes find _building);
+            } else {
+                private _pos = selectRandom _building;
+
+                if (count (_pos nearEntities ["CAManBase", 1]) > 0) then {
+                    _buildingsIndexes set [(_buildingsIndexes find _building), _building - [_pos]];
+
+                } else {
+                    private _unit = _unitsArray select 0;
+                    [_unit, "AUTOCOMBAT"] remoteExec ["disableAI", _unit];
+                    [_unit,"PATH"] remoteExec ["disableAI", _unit];
+                    _unit setPos _pos;
+                    _unitsArray deleteAt (_unitsArray find _unit);
+                    _buildingsIndexes set [(_buildingsIndexes find _building), _building - [_pos]];
+                };
+            };
+        };
+    };
+};
+
+_unitsArray
