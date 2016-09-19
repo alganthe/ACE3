@@ -17,8 +17,8 @@ params [["_unitsArray", [], [[]]]];
 
 {
     if !(isPlayer _x) then {
-        ["AUTOCOMBAT"] remoteExec ["enableAI", _x];
-        ["PATH"] remoteExec ["enableAI", _x];
+        [_x, "AUTOCOMBAT"] remoteExec ["enableAI", _x];
+        [_x, "PATH"] remoteExec ["enableAI", _x];
         if (leader _x != _x) then {
             doStop _x;
             [_x, (leader _x)] remoteExec ["doFollow", _x];

@@ -76,9 +76,9 @@ if (_topDownFilling) then {
 } foreach (_buildingsIndexes select {count _x == 0});
 
 // Warn the user that there's not enough positions to place all units
-private _cnt = 0;
-{_cnt = _cnt + count _x} foreach _buildingsIndexes;
-private _leftOverAICount = (count _unitsArray) - _cnt;
+private _count = 0;
+{_count = _count + count _x} foreach _buildingsIndexes;
+private _leftOverAICount = (count _unitsArray) - _count;
 if (_leftOverAICount > 0) then {
     [CSTRING(GarrisonNotEnoughPos)] call EFUNC(common,displayTextStructured);
 };
