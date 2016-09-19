@@ -18,6 +18,7 @@ PREP(moduleSetMedicalFacility);
 PREP(moduleSurrender);
 PREP(moduleTeleportPlayers);
 PREP(moduleUnconscious);
+PREP(moduleUnGarrison);
 PREP(moduleZeusSettings);
 PREP(ui_attributeCargo);
 //PREP(ui_attributePosition);

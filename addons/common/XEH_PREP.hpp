@@ -168,6 +168,7 @@ PREP(toBitmask);
 PREP(toHex);
 PREP(toNumber);
 PREP(unhideUnit);
+PREP(unGarrison);
 PREP(uniqueElements);
 PREP(unloadPerson);
 PREP(unloadPersonLocal);

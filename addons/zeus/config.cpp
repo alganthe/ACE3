@@ -11,7 +11,8 @@ class CfgPatches {
             QGVAR(moduleSearchArea),
             QGVAR(moduleSearchNearby),
             QGVAR(moduleTeleportPlayers),
-            GVAR(moduleGarrison)
+            QGVAR(moduleGarrison),
+            QGVAR(moduleUnGarrison)
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;

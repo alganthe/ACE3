@@ -26,7 +26,7 @@ switch (_fillingType) do {
 
             private _building = _buildingsIndexes select 0;
 
-            // Remove building if all pos are used
+            // Remove building if all the positions are used
             if (_building isEqualTo []) then {
                 _buildingsIndexes deleteAt 0;
                 breakTo "UnitScope";
@@ -40,14 +40,13 @@ switch (_fillingType) do {
 
             } else {
                 private _unit = _unitsArray select 0;
-                _unit disableAI "AUTOCOMBAT";
-                _unit disableAI "PATH";
+                [_unit, "AUTOCOMBAT"] remoteExec ["disableAI", _unit];
+                [_unit,"PATH"] remoteExec ["disableAI", _unit];
                 _unit setPos _pos;
                 _unitsArray deleteAt (_unitsArray find _unit);
                 _building deleteAt 0;
                 _buildingsIndexes deleteAt 0;
                 _buildingsIndexes pushbackUnique _building;
-                diag_log "Unit placed";
             };
         } else {
             breakOut "UnitScope";
@@ -62,7 +61,6 @@ switch (_fillingType) do {
 
             private _building = _buildingsIndexes select 0;
 
-            // Remove building if all pos are used
             if (_building isEqualTo []) then {
                 _buildingsIndexes deleteAt 0;
                 breakTo "UnitScope";
@@ -70,19 +68,17 @@ switch (_fillingType) do {
 
             private _pos = _building select 0;
 
-            // Remove building if all pos are used
             if (count (_pos nearEntities ["CAManBase", 1]) > 0) then {
                 _buildingsIndexes set [0, _building - [_pos]];
                 breakTo "UnitScope";
 
             } else {
                 private _unit = _unitsArray select 0;
-                _unit disableAI "AUTOCOMBAT";
-                _unit disableAI "PATH";
+                [_unit, "AUTOCOMBAT"] remoteExec ["disableAI", _unit];
+                [_unit,"PATH"] remoteExec ["disableAI", _unit];
                 _unit setPos _pos;
                 _unitsArray deleteAt (_unitsArray find _unit);
                 _buildingsIndexes set [0, _building - [_pos]];
-                diag_log "Unit placed";
             };
         } else {
             breakOut "UnitScope";
@@ -97,7 +93,6 @@ switch (_fillingType) do {
 
             private _building = selectRandom _buildingsIndexes;
 
-            // Remove building if all pos are used
             if (_building isEqualTo []) then {
                 _buildingsIndexes deleteAt (_buildingsIndexes find _building);
                 breakTo "UnitScope";
@@ -105,15 +100,15 @@ switch (_fillingType) do {
 
             private _pos = selectRandom _building;
 
-            // Remove pos if unit nearby
+
             if (count (_pos nearEntities ["CAManBase", 1]) > 0) then {
                 _buildingsIndexes set [(_buildingsIndexes find _building), _building - [_pos]];
                 breakTo "UnitScope";
 
             } else {
                 private _unit = _unitsArray select 0;
-                _unit disableAI "AUTOCOMBAT";
-                _unit disableAI "PATH";
+                [_unit, "AUTOCOMBAT"] remoteExec ["disableAI", _unit];
+                [_unit,"PATH"] remoteExec ["disableAI", _unit];
                 _unit setPos _pos;
                 _unitsArray deleteAt (_unitsArray find _unit);
                 _buildingsIndexes set [(_buildingsIndexes find _building), _building - [_pos]];
@@ -124,7 +119,12 @@ switch (_fillingType) do {
     };
 };
 
+/*
+ * When all units are placed the function will break out of UnitScope
+ * and thus will result in all of the subsequent calls to be ended; with _unitsArray
+ * being sent back through all of it
+ * Otherwise the function just get called again to handle the next unit
+*/
 [_fillingType, _unitsArray, _buildingsIndexes] call FUNC(garrisonPlacement);
 
-// Return the unit array with the units that weren't able to be placed (or empty)
 _unitsArray

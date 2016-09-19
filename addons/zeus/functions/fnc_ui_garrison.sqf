@@ -50,7 +50,6 @@ switch (false) do {
     case (alive _unit): {
         [LSTRING(OnlyAlive)] call _fnc_errorAndClose;
     };
-
     case !(isPlayer _unit): {
         [LSTRING(OnlyNonPlayer)] call _fnc_errorAndClose;
     };

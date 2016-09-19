@@ -570,7 +570,7 @@
             <Czech>Vložen neplatný parametr</Czech>
         </Key>
         <Key ID="STR_ACE_Zeus_ModuleGarrison_DisplayName">
-            <English>Garrison units</English>
+            <English>Garrison group</English>
         </Key>
         <Key ID="STR_ACE_Zeus_ModuleGarrison_TopDownFillingText">
             <English>Fill from top to bottom</English>
@@ -592,6 +592,9 @@
         </Key>
         <Key ID="STR_ACE_Zeus_OnlyNonPlayer">
             <English>Unit must not be a player</English>
+        </Key>
+        <Key ID="STR_ACE_Zeus_ModuleUnGarrison_DisplayName">
+            <English>Un-garrison group</English>
         </Key>
     </Package>
 </Project>
