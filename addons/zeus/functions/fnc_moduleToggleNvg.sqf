@@ -19,23 +19,10 @@
 
 private _units = [];
 
-switch (_target) do {
-    case 0: {
-        _units = allUnits select {alive _x && {side _x == blufor}};
-    };
-    case 1: {
-        _units = allUnits select {alive _x && {side _x == opfor}};
-    };
-    case 2: {
-        _units = allUnits select {alive _x && {side _x == independent}};
-    };
-    case 3: {
-        _units = allUnits select {alive _x && {side _x == civilian}};
-    };
-    case 4: {
-        _units = units (attachedTo _logic);
-    };
-};
+private _units = [
+   allUnits select {alive _x && {side _x == ([blufor, opfor, independent, civilian] select _target)}},
+   units (attachedTo _logic)
+] select (_target == 4);
 
 if (_toggle) then {
     {
