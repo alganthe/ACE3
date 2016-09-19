@@ -184,4 +184,9 @@ class CfgVehicles {
         displayName = CSTRING(ModuleUnGarrison_DisplayName);
         function = QFUNC(moduleUnGarrison);
     };
+    class GVAR(moduleToggleNvg): GVAR(moduleBase) {
+        curatorCanAttach = 1;
+        displayName = CSTRING(moduleToggleNVG_DisplayName);
+        curatorInfoType = QGVAR(RscToggleNvg);
+    };
 };

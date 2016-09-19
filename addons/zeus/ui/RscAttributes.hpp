@@ -457,7 +457,6 @@ class GVAR(RscGarrison): RscDisplayAttributes {
                         class FillingModeTitle: RscText {
                             idc = -1;
                             text = CSTRING(ModuleGarrison_FillingModeText);
-                            toolTip = "";
                             x = 0;
                             y = H_PART(2.3);
                             w = W_PART(26);
@@ -470,6 +469,60 @@ class GVAR(RscGarrison): RscDisplayAttributes {
                             y = H_PART(3.3);
                             w = W_PART(26);
                             h = H_PART(4);
+                        };
+                    };
+                };
+            };
+        };
+        class ButtonOK: ButtonOK {};
+        class ButtonCancel: ButtonCancel {};
+    };
+};
+
+class GVAR(RscToggleNvg): RscDisplayAttributes {
+    onLoad = QUOTE([ARR_3('onLoad', _this, QUOTE(QGVAR(RscToggleNvg)))] call FUNC(zeusAttributes));
+    onUnload = QUOTE([ARR_3('onUnload', _this, QUOTE(QGVAR(RscToggleNvg)))] call FUNC(zeusAttributes));
+    class Controls: Controls {
+        class Background: Background {};
+        class Title: Title {};
+        class Content: Content {
+            class Controls {
+                class ToggleNvg: RscControlsGroupNoScrollbars {
+                    onSetFocus = QUOTE(_this call FUNC(ui_toggleNvg));
+                    idc = 92854;
+                    x = 0;
+                    y = 0;
+                    w = W_PART(26);
+                    h = H_PART(3);
+                    class controls {
+                        class ToggleNvgTitle: Title {
+                            idc = -1;
+                            text = CSTRING(moduleToggleNVG_ToggleNvgTitle);
+                            toolTip = CSTRING(moduleToggleNVG_ToggleNvgTitleTooltip);
+                            x = H_PART(0);
+                            y = H_PART(0);
+                            w = W_PART(7);
+                        };
+                        class ToggleNvgCombo: RscCombo {
+                            idc = 92855;
+                            x = H_PART(6);
+                            y = H_PART(0);
+                            w = W_PART(10.1);
+                            h = H_PART(1);
+                        };
+                        class ToggleNvgSideTitle: Title {
+                            idc = -1;
+                            text = CSTRING(moduleToggleNVG_ToggleNvgSide);
+                            x = H_PART(0);
+                            y = H_PART(1.2);
+                            w = W_PART(7);
+                        };
+                        class ToggleNvgSideCombo: RscCombo {
+                            idc = 92856;
+                            x = H_PART(6);
+                            y = H_PART(1.2);
+                            w = W_PART(10.1);
+                            h = H_PART(1);
                         };
                     };
                 };

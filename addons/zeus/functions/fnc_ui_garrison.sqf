@@ -1,18 +1,18 @@
 /*
- * Author: SilentSpike
+ * Author: alganthe
  * Initalises the `garrison` zeus module display
  *
  * Arguments:
  * 0: garrison controls group <CONTROL>
  *
  * Return Value:
- * NONE <NIL>
+ * Nothing
  *
  * Example:
  * onSetFocus = "_this call ace_zeus_fnc_ui_garrison"
  *
  * Public: No
- */
+*/
 
 #include "script_component.hpp"
 
