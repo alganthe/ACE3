@@ -17,8 +17,6 @@
 
  params ["_logic", "_toggle", "_target"];
 
-private _units = [];
-
 private _units = [
    allUnits select {alive _x && {side _x == ([blufor, opfor, independent, civilian] select _target)}},
    units (attachedTo _logic)
