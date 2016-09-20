@@ -125,6 +125,7 @@ switch (_fillingType) do {
             } else {
                 private _pos = _building select 0;
 
+                private _nearestUnits = (_pos nearEntities ["CAManBase", 1]);
                 if (count _nearestUnits  > 0 && {count (_nearestUnits select {getPos _x select 2 == _pos select 2}) > 0}) then {
                     _buildingsIndexes set [0, _building - [_pos]];
 
@@ -151,6 +152,7 @@ switch (_fillingType) do {
             } else {
                 private _pos = selectRandom _building;
 
+                private _nearestUnits = (_pos nearEntities ["CAManBase", 1]);
                 if (count _nearestUnits  > 0 && {count (_nearestUnits select {getPos _x select 2 == _pos select 2}) > 0}) then {
                     _buildingsIndexes set [(_buildingsIndexes find _building), _building - [_pos]];
 

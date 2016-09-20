@@ -600,7 +600,7 @@
             <English>Toggle NVGs</English>
         </Key>
         <Key ID="STR_ACE_Zeus_moduleToggleNVG_ToggleNvgTitle">
-            <English>Possess NVGs</English>
+            <English>NVG equipment</English>
         </Key>
         <Key ID="STR_ACE_Zeus_moduleToggleNVG_ToggleNvgTitleTooltip">
             <English>Add or remove NVGs from units</English>
