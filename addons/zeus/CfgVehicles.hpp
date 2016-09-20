@@ -191,4 +191,9 @@ class CfgVehicles {
         displayName = CSTRING(moduleToggleNVG_DisplayName);
         curatorInfoType = QGVAR(RscToggleNvg);
     };
+    class GVAR(moduleToggleFlashlight): GVAR(moduleBase) {
+        curatorCanAttach = 1;
+        displayName = "Toggle flashlights (placeholder)";
+        curatorInfoType = QGVAR(RscToggleFlashlight);
+    };
 };

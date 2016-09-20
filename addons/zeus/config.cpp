@@ -13,7 +13,8 @@ class CfgPatches {
             QGVAR(moduleTeleportPlayers),
             QGVAR(moduleGarrison),
             QGVAR(moduleUnGarrison),
-            QGVAR(moduleToggleNvg)
+            QGVAR(moduleToggleNvg),
+            QGVAR(moduleToggleFlashlight)
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;

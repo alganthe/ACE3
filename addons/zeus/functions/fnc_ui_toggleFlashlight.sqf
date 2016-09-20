@@ -1,15 +1,15 @@
 /*
  * Author: alganthe
- * Initalises the `Toggle NVGs` zeus module display
+ * Initalises the `Toggle Flashlights` zeus module display
  *
  * Arguments:
- * 0: Nvg toggle controls group <CONTROL>
+ * 0: Flashlight toggle controls group <CONTROL>
  *
  * Return Value:
  * Nothing
  *
  * Example:
- * onSetFocus = "_this call ace_zeus_fnc_ui_toggleNvg"
+ * onSetFocus = "_this call ace_zeus_fnc_ui_toggleFLashlight"
  *
  * Public: No
 */
@@ -52,8 +52,8 @@ if !(isNull _unit) then {
 };
 
 //Specific on-load stuff:
-private _comboBox = _display displayCtrl 92855;
-private _comboBox2 = _display displayCtrl 92856;
+private _comboBox = _display displayCtrl 56218;
+private _comboBox2 = _display displayCtrl 56219;
 
 {
     _comboBox lbSetValue  [_comboBox lbAdd (_x select 0), _x select 1];
@@ -83,7 +83,6 @@ if (isNull _unit) then {
     ];
 };
 
-
 _comboBox lbSetCurSel 0;
 _comboBox2 lbSetCurSel 0;
 
@@ -104,18 +103,19 @@ private _fnc_onConfirm = {
     private _logic = GETMVAR(BIS_fnc_initCuratorAttributes_target,objnull);
     if (isNull _logic) exitWith {};
 
-        private _combo1 = _display displayCtrl 92855;
-        private _combo2 = _display displayCtrl 92856;
+        private _combo1 = _display displayCtrl 56218;
+        private _combo2 = _display displayCtrl 56219;
 
         private _toggle = _combo1 lbValue (lbCurSel _combo1);
         private _target = _combo2 lbValue (lbCurSel _combo2);
+
 
         private _toggle = [
            false,
            true
         ] select (_toggle == 1);
 
-        [_logic, _toggle, _target] call FUNC(moduleToggleNvg);
+        [_logic, _toggle, _target] call FUNC(moduleToggleFlashlight);
 };
 
 _display displayAddEventHandler ["unload", _fnc_onUnload];
