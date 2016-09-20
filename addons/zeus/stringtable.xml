@@ -611,5 +611,14 @@
         <Key ID="STR_ACE_Zeus_moduleToggleNVG_SelectedGroup">
             <English>Selected group</English>
         </Key>
+        <Key ID="STR_ACE_Zeus_moduleToggleFlashlight_DisplayName">
+            <English>Toggle flashlights</English>
+        </Key>
+        <Key ID="STR_ACE_Zeus_moduleToggleFlashlight_ToggleFlashlightSide">
+            <English>Toggle flashlight target</English>
+        </Key>
+        <Key ID="STR_ACE_Zeus_moduleToggleFlashlight_ToggleFlashlightTitle">
+            <English>Flashlight</English>
+        </Key>
     </Package>
 </Project>

@@ -27,7 +27,7 @@ private _units = [
 if (_toggle) then {
     {
         // enableGunLights doesn't work on players
-        if !(isPlayer _x) then {
+        if !(isPlayer _x || {isNil (currentWeapon _x)}) then {
             private _pointer = (_x weaponAccessories (currentWeapon _x)) select 1;
 
             if (!(_pointer isEqualTo "") && {isNull (configfile >> "CfgWeapons" >> _pointer >> "ItemInfo" >> "Pointer")}) then {
@@ -48,7 +48,7 @@ if (_toggle) then {
 
 } else {
     {
-        if !(isPlayer _x) then {
+        if !(isPlayer _x || {isNil (currentWeapon _x)}) then {
             _x enableGunLights "ForceOff";
         };
     } foreach _units;

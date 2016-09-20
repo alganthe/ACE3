@@ -551,7 +551,7 @@ class GVAR(RscToggleFlashlight): RscDisplayAttributes {
                     class controls {
                         class ToggleFlashlightTitle: Title {
                             idc = -1;
-                            text = "placeholder";
+                            text = CSTRING(moduleToggleFlashlight_ToggleFlashlightTitle);
                             x = H_PART(0);
                             y = H_PART(0);
                             w = W_PART(7);
@@ -565,7 +565,7 @@ class GVAR(RscToggleFlashlight): RscDisplayAttributes {
                         };
                         class ToggleFlashlightSideTitle: Title {
                             idc = -1;
-                            text = "placeholder";
+                            text = CSTRING(moduleToggleFlashlight_ToggleFlashlightSide);
                             x = H_PART(0);
                             y = H_PART(1.2);
                             w = W_PART(7);
