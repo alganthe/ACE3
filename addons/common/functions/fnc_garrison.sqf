@@ -83,6 +83,8 @@ if (_leftOverAICount > 0) then {
     [LSTRING(GarrisonNotEnoughPos)] call EFUNC(common,displayTextStructured);
 };
 
+private _placedUnits = [];
+
 // Do the placement
 switch (_fillingType) do {
     case 0: {
@@ -102,9 +104,8 @@ switch (_fillingType) do {
 
                 } else {
                     private _unit = _unitsArray select 0;
-                    [_unit, "AUTOCOMBAT"] remoteExec ["disableAI", _unit];
-                    [_unit,"PATH"] remoteExec ["disableAI", _unit];
                     _unit setPos _pos;
+                    _placedUnits pushBack _unit;
                     _unitsArray deleteAt (_unitsArray find _unit);
                     _building deleteAt 0;
                     _buildingsIndexes deleteAt 0;
@@ -131,9 +132,8 @@ switch (_fillingType) do {
 
                 } else {
                     private _unit = _unitsArray select 0;
-                    [_unit, "AUTOCOMBAT"] remoteExec ["disableAI", _unit];
-                    [_unit,"PATH"] remoteExec ["disableAI", _unit];
                     _unit setPos _pos;
+                    _placedUnits pushBack _unit;
                     _unitsArray deleteAt (_unitsArray find _unit);
                     _buildingsIndexes set [0, _building - [_pos]];
                 };
@@ -158,10 +158,9 @@ switch (_fillingType) do {
 
                 } else {
                     private _unit = _unitsArray select 0;
-                    [_unit, "AUTOCOMBAT"] remoteExec ["disableAI", _unit];
-                    [_unit,"PATH"] remoteExec ["disableAI", _unit];
                     _unit setPos _pos;
                     _unitsArray deleteAt (_unitsArray find _unit);
+                    _placedUnits pushBack _unit;
                     _buildingsIndexes set [(_buildingsIndexes find _building), _building - [_pos]];
                 };
             };
@@ -169,4 +168,6 @@ switch (_fillingType) do {
     };
 };
 
+[QGVAR(disableAI), [_placedUnits, "AUTOCOMBAT"], _placedUnits] call CBA_fnc_targetEvent;
+[QGVAR(disableAI), [_placedUnits, "PATH"], _placedUnits] call CBA_fnc_targetEvent;
 _unitsArray
