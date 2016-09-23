@@ -14,7 +14,9 @@ class CfgPatches {
             QGVAR(moduleGarrison),
             QGVAR(moduleUnGarrison),
             QGVAR(moduleToggleNvg),
-            QGVAR(moduleToggleFlashlight)
+            QGVAR(moduleToggleFlashlight),
+            QGVAR(AddFullArsenal),
+            QGVAR(RemoveFullArsenal)
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;

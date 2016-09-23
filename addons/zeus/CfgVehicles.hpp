@@ -196,4 +196,14 @@ class CfgVehicles {
         displayName = CSTRING(moduleToggleFlashlight_DisplayName);
         curatorInfoType = QGVAR(RscToggleFlashlight);
     };
+    class GVAR(AddFullArsenal): GVAR(moduleBase) {
+        curatorCanAttach = 1;
+        displayName = CSTRING(moduleAddFullArsenal_displayName);
+        function = QFUNC(moduleAddArsenal);
+    };
+    class GVAR(RemoveFullArsenal): GVAR(moduleBase) {
+        curatorCanAttach = 1;
+        displayName = CSTRING(moduleRemoveArsenal_displayName);
+        function = QFUNC(moduleRemoveArsenal);
+    };
 };

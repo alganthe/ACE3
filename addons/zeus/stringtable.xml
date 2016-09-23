@@ -620,5 +620,11 @@
         <Key ID="STR_ACE_Zeus_moduleToggleFlashlight_ToggleFlashlightTitle">
             <English>Flashlight</English>
         </Key>
+        <Key ID="STR_ACE_Zeus_moduleAddFullArsenal_displayName">
+            <English>Add full arsenal to object</English>
+        </Key>
+        <Key ID="STR_ACE_Zeus_moduleRemoveArsenal_displayName">
+            <English>Remove arsenal from object</English>
+        </Key>
     </Package>
 </Project>
