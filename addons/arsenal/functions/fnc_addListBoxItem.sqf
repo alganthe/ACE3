@@ -41,7 +41,9 @@ if (_cachedItemInfo isEqualTo []) then {//Not in cache. So get info and put into
     };
 
     if (_dlcName != "") then {
-        _cachedItemInfo set [2, (modParams [_dlcName,["logo"]]) param [0,""]];//mod picture
+        if (GVAR(enableModIcons)) then {
+            _cachedItemInfo set [2, (modParams [_dlcName,["logo"]]) param [0,""]];//mod picture
+        };
         _modID = GVAR(modList) find _dlcName;
         if (_modID < 0) then {_modID = GVAR(modList) pushback _dlcName;};//We keep a ordered list of all mods for sorting later.
         _cachedItemInfo set [3, _modID];//mod ID
